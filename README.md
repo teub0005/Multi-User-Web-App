@@ -10,3 +10,7 @@ npm install --save socket.io
 then start with:
 	
 node index.js
+
+tutorial link:
+	
+https://socket.io/get-started/chat/
