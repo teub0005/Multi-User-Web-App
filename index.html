@@ -13,10 +13,12 @@
 			#messages li:nth-child(odd) { background: #eee; }
 			#messagePanel {width:500px;}
 			#us {visibility: hidden;}
+			#color {visibility: hidden;}
 		</style>
 	</head>
 	<body>
 		<div id="us">(desired username)</div>
+<div id="color">(desired color)</div>
 		<div id="messagePanel">
 			<ul id="messages"></ul>
 			<form action="">
@@ -30,15 +32,20 @@
 				var socket = io();
 				var username = window.prompt("desired username?");
 				document.getElementById("us").innerHTML = username;
+				var favCol = window.prompt("favorite color?");
+				document.getElementById("color").innerHTML = favCol;
 				$('form').submit(function(){
 					us = document.getElementById("us").innerHTML;
-					var message =us +" : "+ $('#m').val();
+					col = document.getElementById("color").innerHTML;
+					var messageStr =us +" : "+ $('#m').val();
+					var message = {color : col, message : messageStr};
 					socket.emit('chat message', message);
 					$('#m').val('');
 					return false;
 				});
 				socket.on('chat message', function(msg){
-					$('#messages').append($('<li>').text(msg));
+					var str = "<li><span style=\"color:" + msg.color +"\">" + msg.message + "</span></li>";
+					$('#messages').append(str);
 				});
 			});
 		</script>
