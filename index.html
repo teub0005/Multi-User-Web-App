@@ -12,9 +12,11 @@
 			#messages li { padding: 5px 10px; }
 			#messages li:nth-child(odd) { background: #eee; }
 			#messagePanel {width:500px;}
+			#us {visibility: hidden;}
 		</style>
 	</head>
 	<body>
+		<div id="us">(desired username)</div>
 		<div id="messagePanel">
 			<ul id="messages"></ul>
 			<form action="">
@@ -26,8 +28,12 @@
 		<script>
 			$(function () {
 				var socket = io();
+				var username = window.prompt("desired username?");
+				document.getElementById("us").innerHTML = username;
 				$('form').submit(function(){
-					socket.emit('chat message', $('#m').val());
+					us = document.getElementById("us").innerHTML;
+					var message =us +" : "+ $('#m').val();
+					socket.emit('chat message', message);
 					$('#m').val('');
 					return false;
 				});
