@@ -11,13 +11,16 @@
 			#messages { list-style-type: none; margin: 0; padding: 0; min-height: 200px;}
 			#messages li { padding: 5px 10px; }
 			#messages li:nth-child(odd) { background: #eee; }
+			#messagePanel {width:500px;}
 		</style>
 	</head>
 	<body>
-		<ul id="messages"></ul>
-		<form action="">
-			<input id="m" autocomplete="off" /><button>Send</button>
-		</form>
+		<div id="messagePanel">
+			<ul id="messages"></ul>
+			<form action="">
+				<input id="m" autocomplete="off" /><button>Send</button>
+			</form>
+		</div>
    		<script src="https://cdn.socket.io/socket.io-1.7.3.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 		<script>
