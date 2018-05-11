@@ -15,11 +15,12 @@
 			#messagePanel {width:500px;}
 			#us {visibility: hidden;}
 			#color {visibility: hidden;}
-			#group {visibility: hidden;}
+			
 		</style>
 	</head>
 	<body>
 		<h1>Multi-User Chat App</h1>
+		<p>chatroom: <span id="group">default</span></p>
 		<div id="messagePanel">
 			<ul id="messages"></ul>
 			<form action="">
@@ -28,7 +29,6 @@
 		</div>
 		<div id="us">(desired username)</div>
 		<div id="color">(desired color)</div>
-		<div id="group">default</div>
    		<script src="https://cdn.socket.io/socket.io-1.7.3.js"></script>
 		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 		<script>
@@ -68,5 +68,6 @@
 				});
 			});
 		</script>
+		
 	</body>
 </html>
