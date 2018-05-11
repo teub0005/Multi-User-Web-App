@@ -4,8 +4,7 @@ for web dev
 
 after downloading run:
 	
-npm install --save express@4.15.2  
-npm install --save socket.io
+npm install 
   
 then start with:
 	
